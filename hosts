@@ -1,0 +1,5 @@
+[lego:children]
+rs
+
+[rs]
+tc.gortc.io ansible_user=root root_domain=gortc.io

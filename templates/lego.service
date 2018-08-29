@@ -1,0 +1,14 @@
+[Unit]
+Description=LetsEncrypt Renew Script for %I
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStartPost=/bin/systemctl reload nginx.service
+ExecStart=/usr/local/bin/lego -a -s {{ lego_server }} -d=%i -m={{ lego_email }} --dns cloudflare --path={{ lego_dir }} renew
+Type=simple
+Restart=on-failure
+RestartSec=10s
+PrivateTmp=yes
+Environment=CF_API_KEY={{ cf_api_key }}
+Environment=CF_API_EMAIL={{ cf_api_email }}

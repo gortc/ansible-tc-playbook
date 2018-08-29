@@ -1,0 +1,5 @@
+[tc]
+192.168.2.10 ansible_user=root root_domain=test.gortc.io lego_server=https://acme-staging-v02.api.letsencrypt.org/directory
+
+[lego:children]
+tc

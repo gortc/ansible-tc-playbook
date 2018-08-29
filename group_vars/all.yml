@@ -1,0 +1,18 @@
+---
+lego_dir: /var/lego
+cert_dir: "{{ lego_dir }}/certificates"
+nginx_acme_dir: "{{ lego_dir }}/acme/"
+lego_server: https://acme-v02.api.letsencrypt.org/directory
+lego_version: v1.0.1
+lego_email: "ar@cydev.ru"
+domains:
+  - tc.{{ root_domain}}
+nginx_client_max_body_size: 0
+nginx_extra_http_options: |
+  proxy_read_timeout     1200;
+  proxy_connect_timeout  240;
+
+  map $http_upgrade $connection_upgrade {
+      default upgrade;
+      '' '';
+  }  
