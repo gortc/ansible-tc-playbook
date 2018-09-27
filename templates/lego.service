@@ -10,5 +10,5 @@ Type=simple
 Restart=on-failure
 RestartSec=10s
 PrivateTmp=yes
-Environment=CF_API_KEY={{ cf_api_key }}
-Environment=CF_API_EMAIL={{ cf_api_email }}
+Environment=CLOUDFLARE_API_KEY={{ cf_api_key }}
+Environment=CLOUDFLARE_EMAIL={{ cf_api_email }}
